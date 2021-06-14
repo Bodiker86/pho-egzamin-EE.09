@@ -51,6 +51,16 @@
                 }
                 else 
                 {
+echo<<<END
+
+    <table>
+        <thead>
+            <tr>
+                <th>Imię</th>
+                
+            </tr>
+            
+        </thead>    
                     while($row = mysqli_fetch_assoc($result))
                     {
                         echo $row['Imie']."<br>";
