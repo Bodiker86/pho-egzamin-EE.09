@@ -1,0 +1,13 @@
+body 
+{
+    padding: 30px;
+    background-color:#29201b;
+    color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+form 
+{
+    margin-bottom: 20px;
+}
