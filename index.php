@@ -64,13 +64,19 @@ echo<<<END
         </thead>  
         <tbody> 
 END;
+                    $suma = 0;
                     while($row = mysqli_fetch_assoc($result))
-                    {
+                    {  
+                        echo "\r\n\t\t\t<tr>";
                         foreach($row as $col)
                         {
-                            echo "\r\n\t\t<td>$col</td>";
+                            echo "<td>$col</td>";
+                            
+                             
                         }
                         echo "</tr>";
+                        $suma += $row['Srednia_ocen'];
+
                         // echo "\r\n\t\t\t<tr><td>".$row['Imie']."</td><td>".$row['Nazwisko']."</td><td>".
                         // $row['Srednia_ocen']."</td><tr>";
                     }
@@ -79,7 +85,9 @@ END;
  \r\n
          </tbody>
     </table>
-END;     
+END;  
+                    echo "<p>Średnia klasy: ".round($suma/$ile, 2)."</p>";                 
+
                 }
 
                 mysqli_close($conn);
