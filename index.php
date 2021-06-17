@@ -27,7 +27,7 @@
                     require_once "dbconnect.php";
 
                 $conn = mysqli_connect ($host, $user, $pass, $db) or die("Błąd połączenia!");
-                
+            }   
                 /*If(!$conn)
                 {
                     echo "Błąd połączenia!";
@@ -51,32 +51,39 @@
                 }
                 else 
                 {
+               
 echo<<<END
 
     <table>
         <thead>
             <tr>
                 <th>Imię</th>
-                
+                <th>Nazwisko</th>
+                <th>Średnia ocena</th>
             </tr>
-            
-        </thead>    
+        </thead>  
+        <tbody> 
+END;
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        echo $row['Imie']."<br>";
+                        foreach($row as $col)
+                        {
+                            echo "\r\n\t\t<td>$col</td>";
+                        }
+                        echo "</tr>";
+                        // echo "\r\n\t\t\t<tr><td>".$row['Imie']."</td><td>".$row['Nazwisko']."</td><td>".
+                        // $row['Srednia_ocen']."</td><tr>";
                     }
+
+ echo<<<END
+ \r\n
+         </tbody>
+    </table>
+END;     
                 }
-                
-                
-                
 
                 mysqli_close($conn);
-               
-                
-               
-             
-                
-               
+                    
         }
         
     ?>
